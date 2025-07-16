@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidsLearn - Personalized Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 KidsLearn 🌟</h1>
+            <p>Personalized Learning Adventures for Every Child</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="profile-section">
+                    <h2>👤 Student Profile</h2>
+                    <div class="child-selector">
+                        <button class="child-btn active" onclick="selectChild('emma')">Emma (8)</button>
+                        <button class="child-btn" onclick="selectChild('alex')">Alex (10)</button>
+                        <button class="child-btn" onclick="selectChild('sam')">Sam (7)</button>
+                    </div>
+                    
+                    <div class="learning-style">
+                        <strong>🎯 Learning Style:</strong>
+                        <p id="learningStyle">Visual & Interactive</p>
+                    </div>
+                    
+                    <div class="learning-style">
+                        <strong>🎪 Interests:</strong>
+                        <p id="interests">Animals, Drawing, Stories</p>
+                    </div>
+                </div>
+                
+                <div class="progress-section">
+                    <h2>📊 Progress</h2>
+                    <div>
+                        <label>Overall Progress</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="overallProgress" style="width: 65%"></div>
+                        </div>
+                        <small>65% Complete</small>
+                    </div>
+                </div>
+                
+                <div class="achievements">
+                    <div class="achievement">
+                        🏆<br>Reading Star
+                    </div>
+                    <div class="achievement">
+                        🎨<br>Art Explorer
+                    </div>
+                    <div class="achievement">
+                        🔢<br>Math Wizard
+                    </div>
+                </div>
+            </div>
+            
+            <div class="learning-area">
+                <div id="homeScreen" class="home-screen">
+                    <div class="welcome-message">
+                        <h2>Welcome back, Emma! 🎉</h2>
+                        <p>Ready for your personalized learning adventure?</p>
+                    </div>
+                    
+                    <h2 style="text-align: center; margin-bottom: 20px; color: #5a67d8;">Choose Your Subject</h2>
+                    <div class="subjects">
+                        <button class="subject-card math" onclick="startSubject('math')">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🔢</div>
+                            <div>Math</div>
+                        </button>
+                        <button class="subject-card reading" onclick="startSubject('reading')">
+                            <div style="font-size: 2em; margin-bottom: 10px;">📚</div>
+                            <div>Reading</div>
+                        </button>
+                        <button class="subject-card science" onclick="startSubject('science')">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🔬</div>
+                            <div>Science</div>
+                        </button>
+                        <button class="subject-card art" onclick="startSubject('art')">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🎨</div>
+                            <div>Art</div>
+                        </button>
+                        <button class="subject-card writing" onclick="startSubject('writing')">
+                            <div style="font-size: 2em; margin-bottom: 10px;">✍️</div>
+                            <div>Writing</div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="mathLesson" class="lesson-content">
+                    <div class="lesson-header">
+                        <button class="btn btn-primary" onclick="goHome()" style="float: left;">← Back</button>
+                        <h2>🔢 Math Adventure</h2>
+                        <div class="difficulty-badges">
+                            <span class="badge easy">Visual Learning</span>
+                            <span class="badge medium">Age 8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <h3>🐾 Animal Addition</h3>
+                        <p>Help the animals find their friends by solving addition problems!</p>
+                        
+                        <div class="quiz-container">
+                            <div class="quiz-question">
+                                🐶 There are 3 dogs in the park. 2 more dogs come to play. How many dogs are there now?
+                            </div>
+                            <div class="quiz-options">
+                                <button class="quiz-option" onclick="selectAnswer(this, false)">4 dogs</button>
+                                <button class="quiz-option" onclick="selectAnswer(this, true)">5 dogs</button>
+                                <button class="quiz-option" onclick="selectAnswer(this, false)">6 dogs</button>
+                            </div>
+                            <button class="btn btn-primary" onclick="checkMathAnswer()" style="margin-top: 15px;">Check Answer</button>
+                            <div id="mathFeedback" class="feedback"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="readingLesson" class="lesson-content">
+                    <div class="lesson-header">
+                        <button class="btn btn-primary" onclick="goHome()" style="float: left;">← Back</button>
+                        <h2>📚 Reading Adventure</h2>
+                        <div class="difficulty-badges">
+                            <span class="badge easy">Story Based</span>
+                            <span class="badge medium">Age 8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <h3>🦋 The Butterfly Garden</h3>
+                        <p style="line-height: 1.6; margin-bottom: 20px;">
+                            Once upon a time, there was a <strong>beautiful</strong> butterfly garden. 
+                            The butterflies loved to dance among the colorful flowers. 
+                            A little girl named Maya visited the garden every day to watch them fly.
+                        </p>
+                        
+                        <div class="quiz-container">
+                            <div class="quiz-question">
+                                What did the butterflies love to do in the garden?
+                            </div>
+                            <div class="quiz-options">
+                                <button class="quiz-option" onclick="selectAnswer(this, false)">Sleep on the flowers</button>
+                                <button class="quiz-option" onclick="selectAnswer(this, true)">Dance among the flowers</button>
+                                <button class="quiz-option" onclick="selectAnswer(this, false)">Hide under the leaves</button>
+                            </div>
+                            <button class="btn btn-primary" onclick="checkReadingAnswer()" style="margin-top: 15px;">Check Answer</button>
+                            <div id="readingFeedback" class="feedback"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="scienceLesson" class="lesson-content">
+                    <div class="lesson-header">
+                        <button class="btn btn-primary" onclick="goHome()" style="float: left;">← Back</button>
+                        <h2>🔬 Science Discovery</h2>
+                        <div class="difficulty-badges">
+                            <span class="badge easy">Hands-on</span>
+                            <span class="badge medium">Age 8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <h3>🌱 How Plants Grow</h3>
+                        <p>Let's learn about what plants need to grow healthy and strong!</p>
+                        
+                        <div class="quiz-container">
+                            <div class="quiz-question">
+                                What do plants need to grow? (Choose all that apply)
+                            </div>
+                            <div class="quiz-options">
+                                <button class="quiz-option" onclick="selectMultiple(this, true)">☀️ Sunlight</button>
+                                <button class="quiz-option" onclick="selectMultiple(this, true)">💧 Water</button>
+                                <button class="quiz-option" onclick="selectMultiple(this, false)">🍕 Pizza</button>
+                                <button class="quiz-option" onclick="selectMultiple(this, true)">🌱 Soil</button>
+                            </div>
+                            <button class="btn btn-primary" onclick="checkScienceAnswer()" style="margin-top: 15px;">Check Answer</button>
+                            <div id="scienceFeedback" class="feedback"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="artLesson" class="lesson-content">
+                    <div class="lesson-header">
+                        <button class="btn btn-primary" onclick="goHome()" style="float: left;">← Back</button>
+                        <h2>🎨 Art Studio</h2>
+                        <div class="difficulty-badges">
+                            <span class="badge easy">Creative</span>
+                            <span class="badge medium">Age 8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <h3>🌈 Color Mixing Magic</h3>
+                        <p>Discover what happens when you mix different colors together!</p>
+                        
+                        <div class="quiz-container">
+                            <div class="quiz-question">
+                                What color do you get when you mix red and yellow?
+                            </div>
+                            <div class="quiz-options">
+                                <button class="quiz-option" onclick="selectAnswer(this, false)">Purple</button>
+                                <button class="quiz-option" onclick="selectAnswer(this, true)">Orange</button>
+                                <button class="quiz-option" onclick="selectAnswer(this, false)">Green</button>
+                            </div>
+                            <button class="btn btn-primary" onclick="checkArtAnswer()" style="margin-top: 15px;">Check Answer</button>
+                            <div id="artFeedback" class="feedback"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="writingLesson" class="lesson-content">
+                    <div class="lesson-header">
+                        <button class="btn btn-primary" onclick="goHome()" style="float: left;">← Back</button>
+                        <h2>✍️ Creative Writing</h2>
+                        <div class="difficulty-badges">
+                            <span class="badge easy">Creative</span>
+                            <span class="badge medium">Age 8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <h3 id="writingTitle">🌟 My Magical Adventure</h3>
+                        <div class="writing-prompt" id="writingPrompt">
+                            <strong>Writing Prompt:</strong> Imagine you found a magical door in your backyard. What's behind it? Describe your adventure! Think about what you see, hear, and feel.
+                        </div>
+                        
+                        <div class="writing-tips" id="writingTips">
+                            <h4>💡 Writing Tips:</h4>
+                            <ul>
+                                <li>Use describing words (adjectives) to make your story interesting</li>
+                                <li>Tell us what you see, hear, and feel</li>
+                                <li>Use "I" to tell your story</li>
+                                <li>Don't worry about perfect spelling - focus on your ideas!</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="writing-example" id="writingExample">
+                            <strong>Example Start:</strong> "When I opened the magical door, I saw a shimmering forest with purple trees and singing flowers..."
+                        </div>
+                        
+                        <textarea 
+                            id="writingArea" 
+                            class="writing-area" 
+                            placeholder="Start writing your amazing story here..."
+                            oninput="updateWordCount()"
+                        ></textarea>
+                        
+                        <div class="word-count">
+                            <span id="wordCount">0</span> words written
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary" onclick="checkWriting()">Share My Story</button>
+                            <button class="btn btn-success" onclick="generateNewPrompt()" style="margin-left: 10px;">New Story Idea</button>
+                        </div>
+                        
+                        <div id="writingFeedback" class="feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
